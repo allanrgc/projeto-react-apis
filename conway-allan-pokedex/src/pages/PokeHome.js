@@ -53,7 +53,7 @@ const filteredPokelist = () =>
       <MainContainer>
         {filteredPokelist().map((pokemon, key, cardColor) => {
         return (
-            <CardDetails
+            <Card
                 // cardColor={getColors(pokemon.type[0])}
                 key={pokemon.data.id}
                 pokemon={pokemon}
