@@ -24,6 +24,9 @@ function Header() {
   // const irParaHome = () => {
   //   navigate(`/`)
   // }
+  const pokemonInDetails = location.pathname.slice(9);
+  // const param = /^\/details\/.+/.test(location.pathname)
+  // console.log(pokemonInDetails)
   const renderHeader = () => {
     switch (location.pathname) {
       case "/":
@@ -43,6 +46,16 @@ function Header() {
             </StyledButton>
             <span>Pokedex</span>
           </>
+        );
+      case `/details/${pokemonInDetails}`:
+
+        return (
+        <>
+        <StyledButton onClick={() => homeButton(navigate)}>
+          Ver lista de pokemons
+        </StyledButton>
+        <span>Detalhes</span>
+      </>
         );
       default:
         return (

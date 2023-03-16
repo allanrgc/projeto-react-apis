@@ -80,6 +80,17 @@ import { getTypes } from '../../utils/ReturnPokemonType';
             >
             
           </Box>
+
+          <Box
+            width={282}
+            height={613}
+            bg={'white'}
+            left={'360px'}
+            top={'26px'}
+            borderRadius={'12px'}
+            >
+            
+          </Box>
           <Stack  align={'left'}>
             <Text textAlign={'left'} 
             color={'white'} 

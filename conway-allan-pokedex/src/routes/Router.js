@@ -64,8 +64,6 @@ export const Router = (props) => {
             (anyPokeDetail) => anyPokeDetail.data.name === pokemonToDetail.data.name
             
           );
-          
-      
           if (!isAlreadyOnDetail) {
             const newPokeDetail = [...pokeDetail, pokemonToDetail];
             setPokeDetail(newPokeDetail);
