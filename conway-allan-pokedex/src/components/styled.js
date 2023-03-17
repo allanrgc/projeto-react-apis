@@ -22,18 +22,22 @@ export const StyledHeader = styled.header`
     width: 100vw;
 
 `
-export const StyledHomeButton = styled.button`
+export const StyledButtonIntern = styled.button`
 background: transparent;
 margin: 0.25em 1em;
 border: none;
+font-weight: 700;
 height: 7rem;
-right: 0;
+position: absolute;
+left: 0;
+text-decoration: underline;
 `
 export const StyledButton = styled.button`
 background: #33A4F5;
 border-radius: 0.5rem;
 border: none;
 color: #fff;
+
 margin: 0.25rem 0.625rem;
 width: 18rem;
 height: 4.625rem;
@@ -51,10 +55,11 @@ export const MainContainer = styled.main`
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    padding-top: 64px;
     align-items: center;
     justify-content: space-evenly;
     height: auto;
     width: 100vw;
-    background: #DDDDDD;
+    background: #606060;
 `
 
