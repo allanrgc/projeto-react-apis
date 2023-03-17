@@ -1,7 +1,7 @@
 import { useLocation, useNavigate } from "react-router-dom";
 import { homeButton, pokedexButton } from "../../routes/coordinator";
-import {StyledHeader, StyledButton, StyledHomeButton} from "../styled";
-import logo from "../../assets/pokemon-logo.png";
+import {StyledHeader, StyledButton, StyledButtonIntern} from "../styled";
+import logo from "../../assets/pokemonlogo.png";
 import {
   Box,
   Flex,
@@ -12,11 +12,14 @@ import {
   Stack,
   Image,
   Button,
+  Grid,
 } from '@chakra-ui/react';
+import { ChevronLeftIcon } from '@chakra-ui/icons'
 
-function Header() {
+function Header(props) {
   const location = useLocation();
-  const navigate = useNavigate()
+  const navigate = useNavigate();
+  const { addToPokedex, removeFromPokedex, pokemons } = props
   // const irParaPerfil = (nome) => {
   //   navigate(`/profile/${nome}`)
   // }
@@ -24,6 +27,9 @@ function Header() {
   // const irParaHome = () => {
   //   navigate(`/`)
   // }
+  // const detailsPokemon = pokemons.find(
+  //   (anyPokeDetail) => anyPokeDetail.data.name === pokemonInDetails
+  // );
   const pokemonInDetails = location.pathname.slice(9);
   // const param = /^\/details\/.+/.test(location.pathname)
   // console.log(pokemonInDetails)
@@ -31,38 +37,76 @@ function Header() {
     switch (location.pathname) {
       case "/":
         return (
-          <>
+          <Flex align="center" justify="center">
             <StyledButton onClick={() => pokedexButton(navigate)}>
-              Ver pokedex
+              Pokedex
             </StyledButton>
-            <span>Lista de pokemons</span>
-          </>
+            <Image 
+            w={'304px'}
+            src={logo} />
+          </Flex>
         );
       case "/pokedex":
         return (
-          <>
-            <StyledButton onClick={() => homeButton(navigate)}>
-              Ver lista de pokemons
-            </StyledButton>
-            <span>Pokedex</span>
-          </>
+          
+          <Grid >
+            <Image 
+            w={'304px'}
+            src={logo} 
+            />
+          
+            <StyledButtonIntern onClick={() => homeButton(navigate)}>
+              <ChevronLeftIcon/> Todos Pokemons
+            </StyledButtonIntern>
+          </Grid> 
+          
         );
       case `/details/${pokemonInDetails}`:
 
         return (
         <>
-        <StyledButton onClick={() => homeButton(navigate)}>
-          Ver lista de pokemons
-        </StyledButton>
-        <span>Detalhes</span>
+        <Image 
+            w={'304px'}
+            src={logo} 
+            />
+        <StyledButtonIntern onClick={() => homeButton(navigate)}>
+        <ChevronLeftIcon/> Todos Pokemons
+        </StyledButtonIntern>
+        {/* <Flex pt={6} minW={'390px'} direction={'row'} justify={'space-between'} align={'center'}>
+                
+                {location.pathname !== "/" ? (
+                
+                <Button 
+                cursor={'pointer'}
+                // border={'1px solid black'}
+                fontFamily={'poppins'} 
+                fontWeight={400} 
+                fontSize={'xl'}
+                onClick={() => addToPokedex(pokemon)}
+                >Capturar!
+                </Button>
+                ) : (
+                  <Button 
+                  bg='#FF6262'
+                  color='white'
+                  w='144px'
+                fontFamily={'poppins'} 
+                fontWeight={400} 
+                fontSize={'xl'}
+                onClick={() => removeFromPokedex(pokemon)}
+                >Excluir
+                </Button>
+                )}
+              </Flex> */}
+
       </>
         );
       default:
         return (
           <>
-            <StyledHomeButton onClick={() => homeButton(navigate)}>
+            <StyledButton onClick={() => homeButton(navigate)}>
               Voltar para página inicial
-            </StyledHomeButton>
+            </StyledButton>
             <span>Página inexistente</span>
           </>
         );

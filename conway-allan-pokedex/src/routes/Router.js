@@ -106,6 +106,8 @@ export const Router = (props) => {
                     pokeDetail={pokeDetail}
                     showDetails={showDetails}
                     closePokeDetail={closePokeDetail}
+                    addToPokedex={addToPokedex}
+                    removeFromPokedex={removeFromPokedex}
                   />} 
                 />
                 <Route path="*" element={<Error/>} />

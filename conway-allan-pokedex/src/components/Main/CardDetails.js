@@ -1,5 +1,6 @@
 import {
     Box,
+    Grid,
     Flex,
     Center,
     useColorModeValue,
@@ -8,13 +9,15 @@ import {
     Stack,
     Image,
     Button,
+    Progress,
   } from '@chakra-ui/react';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import bigpokeball from "../../assets/bigpokeball.png";
-import { getColors } from '../../utils/ReturnCardColor';
+import { getColors, getStats } from '../../utils/ReturnCardColor';
 import { getTypes } from '../../utils/ReturnPokemonType';
+
 
   
   const IMAGE =
@@ -44,69 +47,154 @@ import { getTypes } from '../../utils/ReturnPokemonType';
   //   }
   // };
 
-    // console.log(props.pokemon.data.sprites.other["official-artwork"].front_default)
+    // console.log(props.pokemon.data.moves)
     return (
-      <Center py={12}>
-        <Box
+      <Center py={12} >
+        <Grid
           role={'group'}
-          p={6}
+          // p={6}
           maxW={'1392px'}
           minW={'1376px'}
-          minH={'672px'}
-          w={'full'}
+          height={'666px'}
+          // w={'full'}
           bg={getColors(props.pokemon.data.types[0]?.type.name)}
-          
+          // gap={2}
+          autoFlow="column dense"
           boxShadow={'2xl'}
           rounded={'12px'}
           pos={'relative'}
           zIndex={1}>
-          <Box
+          <Grid >
+            <Box
             width={282}
             height={282}
             bg={'white'}
+            pos={'relative'}
             left={'44px'}
-            top={'26px'}
+            top={'27px'}
             borderRadius={'8px'}
+              >
+              <Image 
+              pos={'absolute'}
+              top={'80px'}
+              left={'80px'}
+              height={24}
+              width={24}
+                src={props.pokemon.data.sprites.versions["generation-v"]["black-white"].animated.front_default}
+              />
+            </Box>
+            <Box
+              width={282}
+              height={282}
+              bg={'white'}
+              pos={'relative'}
+              left={'44px'}
+              top={'21px'}
+              // bottom={'26px'}
+              borderRadius={'8px'}
             >
-            
-          </Box>
-          <Box
-            width={282}
-            height={282}
-            bg={'white'}
-            left={'44px'}
-            bottom={'26px'}
-            borderRadius={'8px'}
-            >
-            
-          </Box>
+              <Image 
+                pos={'absolute'}
+                top={'80px'}
+                left={'80px'}
+                height={24}
+                width={24}
+                src={props.pokemon.data.sprites.versions["generation-v"]["black-white"].animated.back_default}
+              />
+            </Box>
+          </Grid>
+          
 
           <Box
             width={282}
             height={613}
             bg={'white'}
-            left={'360px'}
-            top={'26px'}
+            pos={'relative'}
+            left={'18px'}
+            top={'27px'}
             borderRadius={'12px'}
             >
-            
+            <Text
+            textAlign={'left'} 
+            color={'black'} 
+            fontFamily={'body'} 
+            fontWeight={700}
+            fontSize={'24px'} 
+            // textTransform={'uppercase'}
+            pos={'relative'} 
+            left={'32px'} 
+            top={'24px'}
+            gridRow='row'
+            >
+              Base status
+            </Text>
+              <Stack w={'80%'} spacing={5}>
+              {/* {props.pokemon.data.stats.map((value) => {
+                    {console.log(value.base_stat)}
+                    // return (
+                    //   <Stack>
+                    //     <Text>{value.stat.name}</Text>
+                    //     if (51  50) {
+                    //       <Progress value={value.base_stat} />
+                    //       } else {
+                    //       <Progress value={value.base_stat} />
+                    //       }
+                        
+                    //   </Stack>
+                    */}
+                {props.pokemon.data.stats.map(value => {
+                return value.base_stat < 50 ? 
+                <Flex
+                  align="center" 
+                  justify="end"
+                  pos={'relative'} 
+                  left={'8px'} 
+                  top={'24px'}
+                >
+                  <Text pr={'16px'} fontSize={'12px'}>{getStats(value.stat.name)}: {value.base_stat}</Text>
+                  <Progress w='65%' borderRadius={4} colorScheme='orange' value={value.base_stat} />
+                  
+                </Flex>
+                  
+                 : 
+                 <Flex
+                  align="center" 
+                  justify="end"
+                  pos={'relative'} 
+                  left={'8px'} 
+                  top={'24px'}  
+                >
+                  <Text pr={'16px'} fontSize={'12px'}>{getStats(value.stat.name)}: {value.base_stat}</Text>
+                  <Progress w='65%' borderRadius={4} colorScheme='yellow' value={value.base_stat} />
+                  
+                  </Flex>
+                  
+                
+                }
+                    )
+                }
+              </Stack>
+              
           </Box>
-          <Stack  align={'left'}>
-            <Text textAlign={'left'} 
-            color={'white'} 
-            fontFamily={'Inter'} 
-            fontSize={'16px'} 
-            textTransform={'uppercase'}>
+          <Stack align={'left'}>
+            <Text 
+            pos={'relative'} 
+            top={'24px'}
+            left={'64px'} 
+            fontSize={'1xl'} 
+            fontFamily={'body'} 
+            fontWeight={600} 
+            color={'white'} >
               #0{props.pokemon.data.id}
             </Text>
-            <Heading fontSize={'2xl'} fontFamily={'body'} fontWeight={600} color={'white'}>
+            <Heading pos={'relative'} left={'64px'} fontSize={'5xl'} fontFamily={'body'} fontWeight={600} color={'white'}>
               {props.pokemon.data.name[0].toUpperCase() + props.pokemon.data.name.substring(1)}
             </Heading>
             <Stack direction={'row'} wrap={'wrap'} justify={'left'} align={'center'} maxH={360} maxW={340}>
                 {props.pokemon.data.types.map((type) => {
                     // {console.log(type)}
                     return (
-                      <Image key={type} src={getTypes(type.type.name)} alt="" />
+                      <Image pos={'relative'} left={'64px'} key={type} src={getTypes(type.type.name)} alt="" />
                     //   <Text fontWeight={800} fontSize={'xl'}>
                     //    {type.type.name[0].toUpperCase() + type.type.name.substring(1)}
                     // </Text>
@@ -131,45 +219,114 @@ import { getTypes } from '../../utils/ReturnPokemonType';
             <Image 
             pos={'absolute'}
             top={0}
-            width={672}
+            width={784}
             right={0}
             zIndex={0}
             src={bigpokeball} alt="pokeball" />
             </Stack>
-              <Flex pt={6} minW={'360px'} direction={'row'} justify={'space-between'} align={'center'}>
-                <Button 
-                cursor={'pointer'}
-                border={'none'}
-                bg={'transparent'}
-                color={'white'}
-                textDecoration={'underline'}
-                // onClick={() => showDetails(pokemon)}
-                // onClick={() => detailsButton(navigate, props.pokemon.data.name)}
-                >Detalhes</Button>
-                {location.pathname === "/" ? (
+            <Box
+              width={292}
+              height={453}
+              bg={'white'}
+              pos={'relative'}
+              left={'64px'}
+              top={'48px'}
+              borderRadius={'8px'}
+            >
+              <Text
+                textAlign={'left'} 
+                color={'black'} 
+                fontFamily={'body'} 
+                fontWeight={700}
+                fontSize={'24px'} 
+                // textTransform={'uppercase'}
+                pos={'relative'} 
+                left={'32px'} 
+                top={'24px'}
+                gridRow='row'
+              >
+                Moves
+              </Text>
+              {/* {props.pokemon.data.moves.map((value) => {
+                    {console.log(props.pokemon.data.moves[0].move.name)}
+                    return ( */}
+                      <Stack>
+                        <Text 
+                        fontWeight={500}
+                        pos={'relative'} 
+                        left={'32px'} 
+                        top={'24px'}
+                        bg={'gray.100'}
+                        w='max'
+                        m={1}
+                        p={1}
+                        borderRadius={8}
+                        >
+                          {props.pokemon.data.moves[0].move.name[0].toUpperCase() + props.pokemon.data.moves[0].move.name.substring(1)}
+                        </Text>
+                        <Text 
+                        fontWeight={500}
+                        pos={'relative'} 
+                        left={'32px'} 
+                        top={'24px'}
+                        bg={'gray.100'}
+                        w='max'
+                        m={1}
+                        p={1}
+                        borderRadius={8}
+                        >
+                          {props.pokemon.data.moves[1].move.name[0].toUpperCase() + props.pokemon.data.moves[1].move.name.substring(1)}
+                        </Text>
+                        <Text 
+                        fontWeight={500}
+                        pos={'relative'} 
+                        left={'32px'} 
+                        top={'24px'}
+                        bg={'gray.100'}
+                        w='max'
+                        mt={1}
+                        p={2}
+                        borderRadius={8}
+                        >
+                          {/* {props.pokemon.data.moves[2].move.name} */}
+                          {props.pokemon.data.moves[2].move.name[0].toUpperCase() + props.pokemon.data.moves[2].move.name.substring(1)}
+                        </Text>
+                        <Text 
+                        fontWeight={500}
+                        pos={'relative'} 
+                        left={'32px'} 
+                        top={'24px'}
+                        bg={'gray.100'}
+                        w='max'
+                        m={1}
+                        p={1}
+                        borderRadius={8}
+                        >
+                          {props.pokemon.data.moves[4].move.name[0].toUpperCase() + props.pokemon.data.moves[4].move.name.substring(1)}
+                        </Text>
+                      </Stack>
+                      
                 
-                <Button 
-                cursor={'pointer'}
-                border={'1px solid black'}
-                fontFamily={'poppins'} 
-                fontWeight={700} 
-                fontSize={'xl'}
-                onClick={() => addToPokedex(pokemon)}
-                >Capturar
-                </Button>
-                ) : (
-                  <Button 
-                fontFamily={'poppins'} 
-                fontWeight={700} 
-                fontSize={'xl'}
-                onClick={() => removeFromPokedex(pokemon)}
-                >Remover da pokedex
-                </Button>
-                )}
-              </Flex>
+                    {/* )
+              }
+            )} */}
+
+            </Box>
+          
             </Stack>
+            <Box
+            width={292}
+            height={0}
+            bg={'white'}
+            pos={'relative'}
+            left={'0px'}
+            top={'150x'}
+            borderRadius={'8px'}
+            >
+            
+          </Box>
           {/* </Stack> */}
-        </Box>
+        </Grid>
       </Center>
     );
   }

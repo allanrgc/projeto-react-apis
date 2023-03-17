@@ -51,10 +51,10 @@ import { getTypes } from '../../utils/ReturnPokemonType';
         <Flex
           role={'group'}
           p={6}
-          maxW={'440px'}
-          minW={'430px'}
-          minH={'230px'}
-          w={'full'}
+          // maxW={'440px'}
+          // minW={'430px'}
+          // minH={'230px'}
+          w={'440px'}
           bg={getColors(props.pokemon.data.types[0]?.type.name)}
           // bg={props.pokemon.data.types.map((type) => {
           //   // console.log(type.type.name[0].toUpperCase() + type.type.name.substring(1))
@@ -144,11 +144,11 @@ import { getTypes } from '../../utils/ReturnPokemonType';
             <Image 
             pos={'absolute'}
             top={0}
-            left={172}
+            right={0}
             zIndex={0}
             src={pokeball} alt="pokeball" />
             </Stack>
-              <Flex pt={6} minW={'360px'} direction={'row'} justify={'space-between'} align={'center'}>
+              <Flex pt={6} minW={'390px'} direction={'row'} justify={'space-between'} align={'center'}>
                 <Button 
                 cursor={'pointer'}
                 border={'none'}
@@ -162,20 +162,23 @@ import { getTypes } from '../../utils/ReturnPokemonType';
                 
                 <Button 
                 cursor={'pointer'}
-                border={'1px solid black'}
+                // border={'1px solid black'}
                 fontFamily={'poppins'} 
-                fontWeight={700} 
+                fontWeight={400} 
                 fontSize={'xl'}
                 onClick={() => addToPokedex(pokemon)}
-                >Capturar
+                >Capturar!
                 </Button>
                 ) : (
                   <Button 
+                  bg='#FF6262'
+                  color='white'
+                  w='144px'
                 fontFamily={'poppins'} 
-                fontWeight={700} 
+                fontWeight={400} 
                 fontSize={'xl'}
                 onClick={() => removeFromPokedex(pokemon)}
-                >Remover da pokedex
+                >Excluir
                 </Button>
                 )}
               </Flex>

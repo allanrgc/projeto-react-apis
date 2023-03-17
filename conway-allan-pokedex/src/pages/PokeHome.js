@@ -7,6 +7,7 @@ import axios from "axios"
 import React, { useEffect, useState } from "react";
 import Card from "../components/Main/Card"
 import CardDetails from "../components/Main/CardDetails";
+import { Heading } from '@chakra-ui/react';
 
 export function PokeHome(props) {
   const {pokemons, addToPokedex, pokedex} = props
@@ -51,6 +52,9 @@ const filteredPokelist = () =>
       <Header />
       
       <MainContainer>
+        <Heading pos={'absolute'} top={176} left={8} fontSize={'4xl'} fontFamily={'body'} fontWeight={700} color={'white'}>
+          Todos Pokemons
+        </Heading>
         {filteredPokelist().map((pokemon, key, cardColor) => {
         return (
             <Card
