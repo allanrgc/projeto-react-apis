@@ -103,6 +103,7 @@ export const Router = (props) => {
                   element={
                   <PokeDetails
                     pokemons={pokemons}
+                    pokedex={pokedex}
                     pokeDetail={pokeDetail}
                     showDetails={showDetails}
                     closePokeDetail={closePokeDetail}

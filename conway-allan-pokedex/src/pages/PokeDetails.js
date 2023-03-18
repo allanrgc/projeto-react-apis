@@ -7,7 +7,7 @@ import pokeball from "../../src/assets/pokeball.png";
 
 
 export function PokeDetails(props) {
-  const { pokemons, pokeDetail, showDetails, removeFromPokedex } = props
+  const { pokedex, pokemons, pokeDetail, showDetails, removeFromPokedex } = props
   const location = useLocation()
   // const params = useParams()
   // // console.log(params)
@@ -21,7 +21,7 @@ console.log(detailsPokemon)
 
   return (
     <BodyContainer>
-      <Header />
+      <Header pokedex={pokedex}/>
       <MainContainer>
         <Image 
           src={pokeball}

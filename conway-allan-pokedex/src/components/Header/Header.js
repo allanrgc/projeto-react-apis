@@ -19,7 +19,7 @@ import { ChevronLeftIcon } from '@chakra-ui/icons'
 function Header(props) {
   const location = useLocation();
   const navigate = useNavigate();
-  const { addToPokedex, removeFromPokedex, pokemons } = props
+  const { addToPokedex, removeFromPokedex, pokemon, pokedex } = props
   // const irParaPerfil = (nome) => {
   //   navigate(`/profile/${nome}`)
   // }
@@ -27,12 +27,12 @@ function Header(props) {
   // const irParaHome = () => {
   //   navigate(`/`)
   // }
-  // const detailsPokemon = pokemons.find(
+  // const detailsPokemon = pokedex.find(
   //   (anyPokeDetail) => anyPokeDetail.data.name === pokemonInDetails
   // );
   const pokemonInDetails = location.pathname.slice(9);
   // const param = /^\/details\/.+/.test(location.pathname)
-  // console.log(pokemonInDetails)
+  console.log(pokemonInDetails)
   const renderHeader = () => {
     switch (location.pathname) {
       case "/":
@@ -72,9 +72,11 @@ function Header(props) {
         <StyledButtonIntern onClick={() => homeButton(navigate)}>
         <ChevronLeftIcon/> Todos Pokemons
         </StyledButtonIntern>
-        {/* <Flex pt={6} minW={'390px'} direction={'row'} justify={'space-between'} align={'center'}>
+        <Flex pt={6} minW={'390px'} direction={'row'} justify={'end'} align={'center'}>
                 
-                {location.pathname !== "/" ? (
+                {/* {location.pathname !== "/" ? ( */}
+                {/* {pokedex.find((isPokeInDetail) => isPokeInDetail.data.name !== pokemonInDetails) ? ( */}
+                {pokedex.find((pokemonInPokedex) => pokemonInPokedex.data.name !== pokemonInPokedex.data.name) ? (
                 
                 <Button 
                 cursor={'pointer'}
@@ -97,7 +99,7 @@ function Header(props) {
                 >Excluir
                 </Button>
                 )}
-              </Flex> */}
+              </Flex>
 
       </>
         );
