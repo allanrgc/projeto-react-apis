@@ -1,6 +1,6 @@
 {
-  "homepage": "https://allanrgc.github.io/conway-allan-pokedex",
-  "name": "conway-allan-pokedex",
+  "homepage": "https://allanrgc.github.io/projeto-react-apis",
+  "name": "projeto-react-apis",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -21,7 +21,6 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -46,5 +45,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "gh-pages": "^6.3.0"
   }
 }
