@@ -1,70 +1,112 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Conway Allan Pokédex
 
-## Available Scripts
+> Uma Pokédex interativa construída com React, que consome APIs para listar e detalhar Pokémons. Projeto pessoal focado em aprendizado e prática de React e deploy via GitHub Pages.
+>Acesse https://allanrgc.github.io/projeto-react-apis/ e volte para a página inicial
 
-In the project directory, you can run:
+---
 
-### `npm start`
+## 📚 Tecnologias Utilizadas
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- React  
+- React Router  
+- Axios  
+- GitHub Pages (para deploy)  
+- ESLint (para qualidade de código)  
+- npm  
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+---
 
-### `npm test`
+## 🚀 Funcionalidades
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Listagem dos Pokémons com detalhes básicos  
+- Visualização detalhada de cada Pokémon  
+- Sistema para adicionar/remover Pokémons da Pokédex pessoal  
+- Navegação entre páginas com React Router  
 
-### `npm run build`
+---
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## 🎯 Como rodar o projeto localmente
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+1. Clone o repositório:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```bash
+git clone https://github.com/allanrgc/projeto-react-apis.git
+```
 
-### `npm run eject`
+2. Entre na pasta do projeto:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+```bash
+cd projeto-react-apis
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+3. Instale as dependências:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+```bash
+npm install
+```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+4. Inicie a aplicação:
 
-## Learn More
+```bash
+npm start
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+A aplicação estará disponível em `http://localhost:3000`
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+---
 
-### Code Splitting
+## 📦 Como fazer o deploy
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Este projeto utiliza a branch `gh-pages` para deploy automático no GitHub Pages.
 
-### Analyzing the Bundle Size
+Para publicar a versão atual no GitHub Pages, execute:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+```bash
+npm run deploy
+```
 
-### Making a Progressive Web App
+Após o deploy, seu site estará disponível em:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+```
+https://allanrgc.github.io/projeto-react-apis/
+```
 
-### Advanced Configuration
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## 🛠 Estrutura do Projeto
 
-### Deployment
+```
+/public         # Arquivos estáticos públicos
+/src            # Código-fonte React
+  /components   # Componentes reutilizáveis
+  /pages        # Páginas principais da aplicação
+  /routes       # Configuração de rotas
+  /assets       # Imagens e ícones
+/package.json   # Configuração do npm e scripts
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+---
 
-### `npm run build` fails to minify
+## 📋 Observações
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- Para mudanças no domínio do GitHub Pages, configure a seção "Pages" nas configurações do repositório.  
+- Caso encontre erros de lint, revise os warnings antes de realizar commits.
+
+---
+
+## 🤝 Contribuição
+
+Contribuições são bem-vindas!  
+Abra issues ou envie pull requests para melhorias.
+
+---
+
+## 📄 Licença
+
+Este projeto é licenciado sob a MIT License.
+
+---
+
+*Desenvolvido por Allan Rafael*  
+[https://github.com/allanrgc](https://github.com/allanrgc)
