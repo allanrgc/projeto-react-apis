@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.js": "/projeto-react-apis/static/js/main.9b56c290.js",
+    "static/js/787.7324ab01.chunk.js": "/projeto-react-apis/static/js/787.7324ab01.chunk.js",
+    "static/media/pokemonlogo.png": "/projeto-react-apis/static/media/pokemonlogo.78d19e780630dbc8a4fa.png",
+    "static/media/bigpokeball.png": "/projeto-react-apis/static/media/bigpokeball.85b2048dc1df1d561f74.png",
+    "index.html": "/projeto-react-apis/index.html",
+    "main.9b56c290.js.map": "/projeto-react-apis/static/js/main.9b56c290.js.map",
+    "787.7324ab01.chunk.js.map": "/projeto-react-apis/static/js/787.7324ab01.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/js/main.9b56c290.js"
+  ]
+}
